@@ -1,2 +1,7 @@
-# Runtime dependencies
 numpy
+scipy
+utils
+scikit-learn
+torch
+torchvision
+matplotlib
