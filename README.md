@@ -1,9 +1,6 @@
 # Machine Learning Algorithms
 
-A collection of some of my implementations of fundamental machine learning algorithms.
-## Overview
-
-This repository contains Jupyter notebooks implementing key machine learning concepts from scratch and using PyTorch/scikit-learn. Each notebook is self-contained with theory, implementation, and visualization.
+This repository contains Jupyter notebooks implementing key machine learning concepts (sometimes from scratch, sometimes using PyTorch/scikit-learn).
 
 
 ## Notebooks
@@ -12,44 +9,39 @@ This repository contains Jupyter notebooks implementing key machine learning con
 **Concepts:** Dimensionality reduction, unsupervised learning, denoising
 
 Implementations of three autoencoder variants:
-- **Autoencoder for Compression**: Uses convolutional layers for dimensionality reduction on MNIST images. Learns a compressed latent representation with reconstruction as the objective.
-- **Denoising Autoencoder (DAE)**: Trained on noisy MNIST images to reconstruct clean versions. Demonstrates robustness to input noise.
-- **Masked Autoencoder (MAE)**: Variation where a portion of input is masked during training.
-
-**Key Results:** Visualizes original vs. reconstructed images at different compression levels.
+- **Autoencoder for Compression**: Uses a CNN for dimensionality reduction on MNIST images. Learns a compressed latent representation with reconstruction as the objective. 
+- **Denoising Autoencoder (DAE)**: Trained on noisy MNIST images to reconstruct clean versions. Robust to input noise.
+- **Masked Autoencoder (MAE)**: A portion of input is masked during training. Robust to input masking. 
 
 ---
 
 ### 2. **Backpropagation** (`backprop.ipynb`)
 **Concepts:** Gradient descent, neural network training, optimization
 
-Implements backpropagation from scratch according to a linked book by Rojas:
-- **XOR Gate Learning**: Simple 2-layer network learning the XOR truth table, visualizing convergence per input.
-- **MNIST Classification**: 2-layer network (784 → 30 → 10 neurons) trained on full MNIST dataset with sigmoid activation.
-- **Loss Tracking**: Shows training dynamics across 200 epochs with loss convergence visualization.
+Implements backpropagation from scratch:
+- **XOR Gate Learning**: Simple 2-layer network learning the XOR gate; convergence is visualised. 
+- **MNIST Classification**: 2-layer network (784 → 30 → 10 neurons) trained on the full MNIST dataset.
+- **Loss Tracking**: Shows training loss across 200 epochs.
 
-**Key Results:** Achieves ~97% accuracy on MNIST with hand-coded backpropagation, demonstrating algorithm correctness.
+**Results:** Achieves ~97% accuracy on MNIST with hand-coded backpropagation.
 
 ---
 
 ### 3. **Canonical Correlation Analysis (CCA)** (`CCA.ipynb`)
 **Concepts:** Multivariate analysis, correlation, dimensionality reduction
 
-Analyzes relationships between two sets of variables. CCA finds linear combinations that maximize correlation between paired datasets.
+ Analysis relationships between two sets of variables. Analysis of cross-covariance matrices finds linear combinations that maximise the correlation between paired datasets.
 
-**Application:** Useful for understanding relationships in multi-view data or comparing different feature sets measuring the same phenomenon.
+Useful for multi-view learning and multivariate statistics.
 
 ---
 
 ### 4. **K-Means Clustering** (`k_means.ipynb`)
-**Concepts:** Unsupervised learning, clustering, centroid-based methods
+**Concepts:** Unsupervised learning, clustering, centroid-based clustering
 
-Implements the K-means algorithm for partitioning data into K clusters:
+Implements a K-means algorithm for K clusters:
 - Iterative centroid updates
-- Cluster assignments based on minimum distance
-- Convergence criteria
-
-**Application:** Image compression, document clustering, customer segmentation.
+- Cluster assignments based on minimum distance (squared)
 
 ---
 
@@ -57,31 +49,24 @@ Implements the K-means algorithm for partitioning data into K clusters:
 **Concepts:** Linear classification, dimensionality reduction, supervised learning
 
 Implements Fisher's Linear Discriminant Analysis (FDA) for binary classification:
-- Maximizes between-class separation
-- Minimizes within-class variance
+- Maximises between-class separation
+- Minimises within-class variance
 - Compares with: naive difference of means, SVM
 
-**Dataset:** Breast cancer classification (malignant vs. benign)
-
-**Key Insight:** Different discriminants extract different aspects of data—FDA balances class separation with low within-class variance.
+Implemented on a breast cancer classification (malignant vs. benign) dataset.
 
 ---
 
-### 6. **Gaussian Discriminant Analysis (QDA)** (`gaussian_disc.ipynb`)
-**Concepts:** Probabilistic models, Bayesian classification, quadratic decision boundaries
+### 6. **Gaussian Discriminant Analysis (GDA)** (`gaussian_disc.ipynb`)
+**Concepts:** Probabilistic classification
 
 Extends Fisher's approach with quadratic discriminants:
 - **Linear Discriminant Analysis (LDA)**: Assumes shared covariance across classes
 - **Quadratic Discriminant Analysis (QDA)**: Each class has its own covariance matrix
 
-**Dataset:** Wine cultivar classification using 4 compositional features (Mg, phenols, flavanoids, etc.)
-
-**Key Results:** 
-- Fisher LDA AUROC: 0.942
-- QDA AUROC: 0.988
+Implemented on wine cultivar classification dataset using 4 compositional features. 
 
 QDA outperforms LDA when classes have different covariance structures.
-
 
 ### Installation
 
